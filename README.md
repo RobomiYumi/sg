@@ -10,4 +10,4 @@ If you want a function site with the cms...
 You may need to download Processwire and replace it with these files and create the needed template pages to make it work. This git is meant to only store the source only.
 
 ##Example at
-[sg.nyansource.com](https://sg.nyansource.com)
+[sg.nyansource.com](http://sg.nyansource.com)
