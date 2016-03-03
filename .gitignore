@@ -1,0 +1,8 @@
+config.php
+/site/templates/assets/cards/*
+/site/templates/assets/dungeon_icons/*
+/site/templates/assets/img/*
+/wire/*
+/site//modules/*
+/site/assets/*
+.htacccess
