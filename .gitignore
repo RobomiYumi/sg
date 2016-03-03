@@ -3,6 +3,7 @@ config.php
 /site/templates/assets/dungeon_icons/*
 /site/templates/assets/img/*
 /wire/*
-/site//modules/*
+/site/modules/*
+/site/modules/*/*
 /site/assets/*
 .htacccess
