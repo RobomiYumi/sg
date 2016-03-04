@@ -130,6 +130,11 @@ $( document ).ready(function() {
 	function getDeckHtml(deck_id){
 
 		var cards = getDeck(deck_id);
+		for (var k in cards) {
+			if (cards.hasOwnProperty(k) && cards[k] === 0) {
+				delete cards[k];
+			}
+		}
 		var html = $('<div></div>');
 		var html_character = $('<div></div>').addClass('character'); //feature box changed my mind
 		var html_followers = $('<div></div>').addClass('followers').addClass('active');
