@@ -20,6 +20,7 @@ $( document ).ready(function() {
 		'120012':'Vita Public School',
 		'120013':'Vivid World',
 		'120014':'Dream Island',
+		'120015':'Muspelheim',
 		'120016':'Catacombs',
 		'120017':'Ancient Sanctuary',
 		'120018':'2S Detective Agency',
@@ -29,7 +30,8 @@ $( document ).ready(function() {
 		'120024':'Underground Alter',
 		'120025':'Loil City',
 		'120028':'Muzisitter Land',
-		'120033':'Weekly The Legend'
+		'120033':'Weekly The Legend',
+		'120034':'Dimension Rift'
 	};
 
 	//Code i took from stackoverflow somewhere...?? loads stuff nicely

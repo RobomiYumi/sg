@@ -18,6 +18,8 @@ foreach ($cards as $card)
 
 function getFile($file_name,$url){
 	$content = file_get_contents($url);
-	if ($content)
-		file_put_contents($config->paths->templates . 'assets/cards/'. $file_name .'.jpg', $content);
+	$path = $config->paths->templates . 'assets/cards/'. $file_name .'.jpg';
+	
+	if ($content and !file_exists($path))
+		file_put_contents($path, $content);
 }

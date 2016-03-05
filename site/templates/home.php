@@ -54,7 +54,7 @@
 	</div>
 	<script src="<?php echo $config->urls->templates . 'scripts/js-cookie-master/src/js.cookie.js' ?>"></script>
 	<script src="<?php echo $config->urls->templates . 'scripts/jquery-2.1.4.min.js' ?>"></script>
-	<script src="<?php echo $config->urls->templates . 'scripts/main.js' ?>"></script>
+	<script src="<?php echo $config->urls->templates . 'scripts/main.js?v=3' ?>"></script>
 
 
 	<?php if (!$user->isLoggedin()): ?>

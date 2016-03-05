@@ -18,7 +18,8 @@ $dungeon_list = array(
 	'011',
 	'012',
 	'013',
-	'014', //skips
+	'014', 
+	'015',
 	'016',
 	'017',
 	'018', //skips
@@ -29,12 +30,21 @@ $dungeon_list = array(
 	'025', //skips
 	'028',//skips
 	'033',
+	'034',
 );
 
-// getFile('npc_decks','https://raw.githubusercontent.com/sharpobject/sgre/master/npc_decks_manual.json');
-// getFile('dungeons','https://raw.githubusercontent.com/sharpobject/sgre/master/dungeons.json');
-// getFile('cards','https://raw.githubusercontent.com/sharpobject/sgre/master/swogi.json');
-// getDungeonIcons($dungeon_list);
+getFile('cards','https://raw.githubusercontent.com/sharpobject/sgre/master/swogi.json');
+getDungeonIcons($dungeon_list);
+
+getNpcDecks('npc_decks','https://raw.githubusercontent.com/sharpobject/sgre/master/npc_decks.json','https://raw.githubusercontent.com/sharpobject/sgre/master/npc_decks_manual.json');
+
+function getNpcDecks($file_name, $url_1, $url_2)
+{
+	$deck_1 = json_decode(file_get_contents($url_1), true);
+	$deck_2 = json_decode(file_get_contents($url_2),true);
+
+	file_put_contents($config->paths->templates . 'assets/jsons/'. $file_name .'.json', json_encode($deck_1+$deck_2,JSON_PRETTY_PRINT));
+}
 
 function getFile($file_name,$url){
 	file_put_contents($config->paths->templates . 'assets/jsons/'. $file_name .'.json', file_get_contents($url));
