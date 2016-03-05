@@ -6,30 +6,30 @@ $( document ).ready(function() {
 	var fetch_ids = null;
 
 	var dungeon_names = {
-		'001':'Beginner Dungeon',
-		'002':'Intermediate Dungeon',
-		'003':'Advanced Dungeon',
-		'004':'Frontier Dungeon',
-		'005':'Witch\'s Tower',
-		'006':'Shadowland',
-		'007':'Crux Training Camp',
-		'008':'Bamboo Garden',
-		'009':'Linia\'s Mansion',
-		'010':'Vampire Lands',
-		'011':'Goddess Tower',
-		'012':'Vita Public School',
-		'013':'Vivid World',
-		'014':'Dream Island',
-		'016':'Catacombs',
-		'017':'Ancient Sanctuary',
-		'018':'2S Detective Agency',
-		'021':'Catch That Cat!',
-		'022':'Linia\'s World',
-		'023':'Underground Library',
-		'024':'Underground Alter',
-		'025':'Royle City',
-		'028':'Muzisitter Land',
-		'033':'Weekly The Legend'
+		'120001':'Beginner Dungeon',
+		'120002':'Intermediate Dungeon',
+		'120003':'Advanced Dungeon',
+		'120004':'Frontier Dungeon',
+		'120005':'Witch\'s Tower',
+		'120006':'Shadowland',
+		'120007':'Crux Training Camp',
+		'120008':'Bamboo Garden',
+		'120009':'Linia\'s Mansion',
+		'120010':'Vampire Lands',
+		'120011':'Goddess Tower',
+		'120012':'Vita Public School',
+		'120013':'Vivid World',
+		'120014':'Dream Island',
+		'120016':'Catacombs',
+		'120017':'Ancient Sanctuary',
+		'120018':'2S Detective Agency',
+		'120021':'Catch That Cat!',
+		'120022':'Linia\'s World',
+		'120023':'Underground Library',
+		'120024':'Underground Alter',
+		'120025':'Loil City',
+		'120028':'Muzisitter Land',
+		'120033':'Weekly The Legend'
 	};
 
 	//Code i took from stackoverflow somewhere...?? loads stuff nicely
@@ -86,7 +86,7 @@ $( document ).ready(function() {
 				if(!boss_id)
 					return;
 
-				var boss_img = $('<img>').attr('src',"/site/templates/assets/dungeon_icons/" + boss_id.toString().substring(3, 6) + '.png').attr('data-id',boss_id).attr('data-reward-id',counter).attr('data-dungeon-id',boss_id.toString().substring(3, 6));
+				var boss_img = $('<img>').attr('src',"/site/templates/assets/dungeon_icons/" + boss_id.toString().substring(3, 6) + '.png').attr('data-id',boss_id);
 				el_container.append(boss_img);
 				counter ++;
 
@@ -112,14 +112,12 @@ $( document ).ready(function() {
 		return cards['skill_text'][skill_id];
 	}
 
-	function getRewards(dungeon_id){
-		return dungeons['rewards'][dungeon_id];
+	function getRewards(boss_id_str){
+		return dungeons['rewards'][parseInt(boss_id_str, 10)-120001];
 	}
 
-
-
-	function getDungeonTitle(dungeon_id){
-		return dungeon_names[dungeon_id];
+	function getDungeonTitle(boss_id_str){
+		return dungeon_names[boss_id_str];
 	}
 
 	function getCardImg(card_id, width){
@@ -132,6 +130,11 @@ $( document ).ready(function() {
 	function getDeckHtml(deck_id){
 
 		var cards = getDeck(deck_id);
+		for (var k in cards) {
+			if (cards.hasOwnProperty(k) && cards[k] === 0) {
+				delete cards[k];
+			}
+		}
 		var html = $('<div></div>');
 		var html_character = $('<div></div>').addClass('character'); //feature box changed my mind
 		var html_followers = $('<div></div>').addClass('followers').addClass('active');
@@ -355,16 +358,16 @@ $( document ).ready(function() {
 			el_preview.empty();
 			el_rewards.empty();
 
-			el_title.html(getDungeonTitle($(this).attr('data-dungeon-id')));
+			el_title.html(getDungeonTitle($(this).attr('data-id')));
 
 			el_container.addClass('front-3');
 			el_preview.append(getDeckHtml($(this).attr('data-id')));
 			// console.log(getReward($(this).attr('data-reward-id')));
-			$('.tabs').append(getRewardHtml($(this).attr('data-reward-id')));
+			$('.tabs').append(getRewardHtml($(this).attr('data-id')));
 			refreshImg();
 			triggerCharacterClick();
 
-			window.history.replaceState('', '', '?dungeon='+$(this).attr('data-dungeon-id'));			
+			window.history.replaceState('', '', '?dungeon='+$(this).attr('data-id'));			
 		});		
 	}	
 
@@ -448,7 +451,7 @@ $( document ).ready(function() {
 
 	function triggerDungeonClick(){
 		var dungeon_parameter = getUrlParameter('dungeon');
-		$('.dungeons img[data-dungeon-id="' + dungeon_parameter + '"]').click();
+		$('.dungeons img[data-id="' + dungeon_parameter + '"]').click();
 	}
 
 	function loadJsonFiles()
