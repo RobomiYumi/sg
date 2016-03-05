@@ -6,7 +6,7 @@
 	<title>Swordgirls Dungeon App</title>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo $config->urls->templates . 'styles/main.css' ?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo $config->urls->templates . 'styles/main.css?v=3' ?>">
 
 	<link href='https://fonts.googleapis.com/css?family=Lilita+One' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
@@ -24,7 +24,8 @@
 </head>
 <body>
 	<div class="header-toolbar">
-		<span>SG Dungeons Alpha - v0.1</span>
+		<h1>Swordgirls Dungeon App</h1>
+		<span>v0.2</span>
 	</div>
 	<div class="header">
 
@@ -50,7 +51,12 @@
 	</div>
 
 	<div class="footer">
-		Desktop Web App - Last updated Nov 29, 2015 - Created by Shana - Powered By One Punch Man O=('-'Q) <br> Problems? Contact us @ <a class="contact-link" href="http://swordgirls.net/contact-us/">http://swordgirls.net/contact-us/</a>
+		Desktop Web App - Last updated Mar 4, 2016 - Created by Shana - Powered By One Punch Man O=('-'Q) <br> Problems? Contact us @ <a class="contact-link" href="http://swordgirls.net/contact-us/">http://swordgirls.net/contact-us/</a>
+		<br>
+		<h4>Change Log</h4>
+		v0.1 - Initial push<br>
+		v0.2 - added 2 new dungeons | Fix s2 dungeon reward glitch
+		</br>
 	</div>
 	<script src="<?php echo $config->urls->templates . 'scripts/js-cookie-master/src/js.cookie.js' ?>"></script>
 	<script src="<?php echo $config->urls->templates . 'scripts/jquery-2.1.4.min.js' ?>"></script>

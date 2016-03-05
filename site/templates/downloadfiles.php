@@ -33,6 +33,7 @@ $dungeon_list = array(
 	'034',
 );
 
+getFile('dungeons','https://raw.githubusercontent.com/sharpobject/sgre/master/dungeons.json');
 getFile('cards','https://raw.githubusercontent.com/sharpobject/sgre/master/swogi.json');
 getDungeonIcons($dungeon_list);
 
